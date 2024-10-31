@@ -1,0 +1,43 @@
+server:
+  port: 8050
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: BloodDonationDataProcessor
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:${DB_PORT:3306}/{DB_NAME:blooddonationdb}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:1234}
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+
+
+  jpa:
+    database: MYSQL
+    open-in-view: false
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: ${SHOW_SQL:false}
+
+    hibernate:
+      ddl-auto: update
+
+logging:
+  level:
+    org:
+      hibernate:
+        type: trace
+api:
+  security:
+    token:
+      secret: ${JWT_SECRET:secret}
+      issuer: ${JWT_ISSUER:auth-api}
+
+management:
+  endpoints:
+    enabled-by-default: true
+    exposure:
+      include: "*"
