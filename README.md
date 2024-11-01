@@ -1,8 +1,6 @@
-# blood-donation-citel
 
 ## Getting Started
 
-Java challenge temp repository. My real account is this one: https://github.com/sabrinaksilva
 
 ### Requirements
 - Java v21
